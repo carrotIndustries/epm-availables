@@ -1,0 +1,17 @@
+#!/bin/bash
+DESC="STM32F4 HAL Driver"
+NAME="usbdevice"
+COMPAT=("stm32f4")
+URL="http://www.st.com/web/en/catalog/tools/PF259243"
+DL="http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef4.zip"
+MD5SUM="ab3bbae96e76a74618c325ae6abe61c1"
+VER="1.1.0"
+EXPATH=("STM32Cube_FW_F4_V${VER}/Middlewares/ST/STM32_USB_Device_Library/*")
+read -r -d '' MAKEFILE <<'EOF'
+INC += -I./pkgs/usbdevice/Core/Inc
+SRC += pkgs/usbdevice/Core/Src/usbd_core.c\
+       pkgs/usbdevice/Core/Src/usbd_ctlreq.c\
+       pkgs/usbdevice/Core/Src/usbd_ioreq.c\
+       pkgs/hal/Src/stm32f4xx_hal_pcd.c \
+       pkgs/hal/Src/stm32f4xx_ll_usb.c \
+EOF

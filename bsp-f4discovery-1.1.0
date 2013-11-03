@@ -1,0 +1,13 @@
+#!/bin/bash
+DESC="STM32F4Discovery BSP"
+NAME="bsp-f4discovery"
+COMPAT=("stm32f4")
+URL="http://www.st.com/web/en/catalog/tools/PF259243"
+DL="http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef4.zip"
+MD5SUM="ab3bbae96e76a74618c325ae6abe61c1"
+VER="1.1.0"
+EXPATH=("STM32Cube_FW_F4_V${VER}/Drivers/BSP/STM32F4-Discovery/*")
+read -r -d '' MAKEFILE <<'EOF'
+INC += -I./pkgs/bsp-f4discovery/
+SRC += pkgs/bsp-f4discovery/stm32f4_discovery.c
+EOF
